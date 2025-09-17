@@ -1,7 +1,12 @@
-
+---
+title: 友链
+hidden: true
+aside: false
+nav: false
+---
 
 <script setup lang="ts">
-import FriendLinks from './.vitepress/theme/components/FriendLinks.vue'
+import FriendLinks from '../.vitepress/theme/components/FriendLinks.vue'
 </script>
 
 # 友链

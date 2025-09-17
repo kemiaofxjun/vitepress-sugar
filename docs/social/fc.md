@@ -6,7 +6,7 @@ nav: false
 ---
 
 <script setup>
-import FriendCircle from './.vitepress/theme/components/fc.vue'
+import FriendCircle from '../.vitepress/theme/components/fc.vue'
 </script>
 
 <FriendCircle />

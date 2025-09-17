@@ -49,8 +49,8 @@ export default defineConfig({
       {
         text: '社交',
         items: [
-          { text: '友链', link: '/friends' },
-          { text: '鱼塘', link: '/fc' }
+          { text: '友链', link: '/social/friends' },
+          { text: '鱼塘', link: '/social/fc' }
           // { text: 'Item B', link: '/item-2' },
           // { text: 'Item C', link: '/item-3' }
         ]
