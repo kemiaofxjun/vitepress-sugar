@@ -1,7 +1,4 @@
----
-title: 友链
-aside: false
----
+
 
 <script setup lang="ts">
 import FriendLinks from './.vitepress/theme/components/FriendLinks.vue'
