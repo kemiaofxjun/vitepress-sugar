@@ -5,7 +5,7 @@ aside: false
 ---
 
 <script setup>
-import Moment from './.vitepress/theme/components/moment.vue'
+import Moment from '../.vitepress/theme/components/moment.vue'
 </script>
 
 <Moment />
