@@ -1,0 +1,81 @@
+diff --git a/src/components/BlogAuthor.vue b/src/components/BlogAuthor.vue
+index 9588a6e339efc04f21e70032f03f9c8a2860ae87..fdbb98cf8f20c7745271e9fe948f9473c9563711 100644
+--- a/src/components/BlogAuthor.vue
++++ b/src/components/BlogAuthor.vue
+@@ -19,12 +19,20 @@ const logo = computed(() =>
+   ?? site.value?.themeConfig?.logo
+   ?? '/logo.png'
+ )
++const frame = computed(() => 
++  frontmatter.value?.avatarFrame
++  ?? home?.value?.avatarFrame
++  ?? 'https://imgbed.kemeow.top/file/img/custom/1758082543694_photo_2025-09-17_10-11-53.png' // 替换为你自己的头像框图片网址
++)
+ const show = computed(() => author.value || logo.value)
+ </script>
+ 
+ <template>
+   <div v-if="show" class="blog-author">
+-    <img v-if="logo" :src="withBase(logo)" alt="avatar">
++    <div class="avatar-container">
++      <img class="avatar-frame" :src="withBase(frame)" alt="avatar frame">
++      <img class="avatar" :src="withBase(logo)" alt="avatar">
++    </div>
+     <p v-if="author">
+       {{ author }}
+     </p>
+@@ -34,20 +42,43 @@ const show = computed(() => author.value || logo.value)
+ <style scoped lang="scss">
+ .blog-author {
+   margin-bottom: 20px;
++  display: flex;
++  flex-direction: column;
++  align-items: center;
+ 
+-  img {
+-    display: block;
++  .avatar-container {
++    position: relative;
++    width: 120px;
++    height: 120px;
+     margin: 10px auto;
+-    width: 100px;
+-    height: 100px;
+-    border-radius: 50%;
+-    background-color: rgba(var(--bg-gradient-home));
+-  }
+ 
+-  img:hover {
+-    transform: rotate(666turn);
+-    transition-duration: 59s;
+-    transition-timing-function: cubic-bezier(.34, 0, .84, 1)
++    .avatar-frame {
++      position: absolute;
++      top: 0;
++      left: 0;
++      width: 100%;
++      height: 100%;
++      z-index: 2;
++      object-fit: contain;
++    }
++
++    .avatar {
++      position: absolute;
++      top: 50%;
++      left: 50%;
++      transform: translate(-50%, -50%);
++      width: 80px;
++      height: 80px;
++      border-radius: 50%;
++      background-color: rgba(var(--bg-gradient-home));
++      z-index: 1;
++    }
++
++    &:hover .avatar {
++      transform: translate(-50%, -50%) rotate(666turn);
++      transition-duration: 59s;
++      transition-timing-function: cubic-bezier(.34, 0, .84, 1);
++    }
+   }
+ 
+   p {
