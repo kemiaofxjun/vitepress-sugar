@@ -58,8 +58,8 @@ export default defineConfig({
       {
         text: '现在',
         items: [
-          { text: '即刻', link: '/now/moment' },
-          { text: '微语', link: '/now/memos' }
+          { text: '即刻', link: '/talk/moment' },
+          { text: '微语', link: '/talk/memos' }
           // { text: '鱼塘', link: '/fc' }
           // { text: 'Item B', link: '/item-2' },
           // { text: 'Item C', link: '/item-3' }
