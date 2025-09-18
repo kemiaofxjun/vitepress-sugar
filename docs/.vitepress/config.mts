@@ -64,7 +64,19 @@ export default defineConfig({
           // { text: 'Item B', link: '/item-2' },
           // { text: 'Item C', link: '/item-3' }
         ]
-      },      
+      },
+      {
+        text: '页面',
+        items: [
+          { text: '番剧', link: '/pages/anime' },
+          { text: '书房', link: '/pages/book' },
+          { text: '影视', link: '/pages/movie' },
+          // { text: '鱼塘', link: '/fc' }
+          // { text: 'Item B', link: '/item-2' },
+          // { text: 'Item C', link: '/item-3' }
+        ]
+      },
+      { text: '关于', link: '/about/about' },
       // { text: '关于作者', link: 'https://sugarat.top/aboutme.html' }
     ],
     socialLinks: [

@@ -12,17 +12,17 @@
     <div v-else class="grid">
       <a
         v-for="f in list"
-        :key="f.link"
+        :key="f.url"
         class="card"
-        :href="f.link"
+        :href="f.url"
         target="_blank"
         rel="noopener noreferrer"
       >
         <!-- 仍然用原始头像 -->
-        <img :src="f.avatar" class="avatar" alt="" />
+        <img :src="f.icon" class="avatar" alt="" />
         <div class="text">
-          <div class="name">{{ f.name }}</div>
-          <div class="descr">{{ f.descr }}</div>
+          <div class="name">{{ f.title }}</div>
+          <div class="descr">{{ f.description }}</div>
         </div>
       </a>
     </div>
@@ -32,7 +32,27 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 
-interface Friend { name: string; link: string; avatar: string; descr: string }
+interface Friend { 
+  title: string; 
+  url: string; 
+  icon: string; 
+  description: string;
+  snapshot?: string;
+  feed?: string;
+  posts?: Array<{
+    title: string;
+    link: string;
+    published: string;
+  }>;
+  issue_number?: number;
+  labels?: Array<{
+    name: string;
+    color: string;
+    hue: number;
+    saturation: number;
+    lightness: number;
+  }>;
+}
 
 const loading = ref(true)
 const error  = ref('')
@@ -42,9 +62,10 @@ async function fetchLinks() {
   loading.value = true
   error.value  = ''
   try {
-    const res = await fetch('https://api.kemiaosw.top/links.json')
+    const res = await fetch('https://friends-api.kemeow.top/v2/data.json')
     if (!res.ok) throw new Error(res.statusText)
-    list.value = await res.json()
+    const data = await res.json()
+    list.value = data.content
   } catch (e: any) {
     error.value = e.message || '未知错误'
   } finally {
