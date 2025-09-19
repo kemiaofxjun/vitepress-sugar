@@ -49,8 +49,8 @@ export default defineConfig({
       {
         text: '文章',
         items: [
-          { text: '技术分享', link: '/post/jishufengxiang' },
-          { text: '资源分享', link: '/post/ziyuanfengxiang' }
+          { text: '技术分享', link: '/jsfx/index' },
+          { text: '资源分享', link: '/zyfx/index' }
           // { text: 'Item B', link: '/item-2' },
           // { text: 'Item C', link: '/item-3' }
         ]
