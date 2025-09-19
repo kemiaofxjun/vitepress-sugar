@@ -1,12 +1,11 @@
 ---
 description: 默认支持流程图，tabs面板，待办列表，作品页面
+hidden: true
 ---
-
-# 内置第三方插件能力
-
 部分内置组件（插件），来源 [vitepress.yiov.top](https://vitepress.yiov.top/plugin.html) 推荐
 
 ## oml2d - 看板娘集成
+
 * Type：[oml2dOptions](https://oml2d.hacxy.cn/api/interfaces/Options.html)
 
 为网站提供一个 Live2D 看板组件。
@@ -31,6 +30,7 @@ const blogTheme = getThemeConfig({
   }
 })
 ```
+
 效果图如下
 
 ![](https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/%E5%BD%95%E5%B1%8F2024-03-11%2023.51.51.gif)
@@ -41,6 +41,7 @@ const blogTheme = getThemeConfig({
 由于时间原因，主题内置的版本不一定都是最新的，可以通过 `resolutions` 配置指定要使用的版本。
 
 下面是使用示例，配置在 `package.json` 中，其它依赖覆盖版本也是这样操作。
+
 ```json
 {
   "resolutions": {
@@ -48,18 +49,21 @@ const blogTheme = getThemeConfig({
   }
 }
 ```
+
 :::
 
 ## task-checkbox
+
 * Type: `boolean | TaskCheckbox`
 
 支持渲染 markdown 任务列表，内置 [markdown-it-task-checkbox](https://github.com/linsir/markdown-it-task-checkbox) 插件提供支持
 
 * [ ] 🥔 TODO
 * [ ] 真不戳
-* [x] 内置任务列表
+* [X] 内置任务列表
 
 语法如下
+
 ```md
 * [ ] 🥔 TODO
 * [ ] 真不戳
@@ -69,19 +73,22 @@ const blogTheme = getThemeConfig({
 默认开启，你可以进一步配置
 
 :::code-group
-```ts [① 关闭]
+
+```ts
 const blogTheme = getThemeConfig({
   taskCheckbox: false
 })
 ```
-```ts [② 进一步配置]
+
+```ts
 const blogTheme = getThemeConfig({
   taskCheckbox: {
     // refer https://github.com/linsir/markdown-it-task-checkbox for options
   }
 })
 ```
-```ts [③ type]
+
+```ts
 interface TaskCheckbox {
   disabled?: boolean
   divWrap?: boolean
@@ -91,9 +98,11 @@ interface TaskCheckbox {
   liClass?: string
 }
 ```
+
 :::
 
 ## timeline
+
 * Type: `boolean`
 * default: `true`
 
@@ -106,9 +115,10 @@ interface TaskCheckbox {
 效果如下
 
 ::: timeline 2023-05-24
+
 - **do some thing1**
 - do some thing2
-:::
+  :::
 
 ::: timeline 2023-05-23
 do some thing3
@@ -116,6 +126,7 @@ do some thing4
 :::
 
 语法如下
+
 ```md
 ::: timeline 2023-05-24
 - **do some thing1**
@@ -129,23 +140,27 @@ do some thing4
 ```
 
 :::code-group
-```ts [关闭]
+
+```ts
 const blogTheme = getThemeConfig({
   timeline: false
 })
 ```
+
 :::
+
 ## tabs
+
 * Type: `boolean`
 
-支持局部的`tabs`面板，**默认开启**
+支持局部的 `tabs`面板，**默认开启**
 
 :::details 我之前手动安装配置了怎么办？
 ① package.json 中移除 vitepress-plugin-tabs 依赖
 
-② .vitepress/theme/index.ts 中移除注册的组件`enhanceAppWithTabs`
+② .vitepress/theme/index.ts 中移除注册的组件 `enhanceAppWithTabs`
 
-③ （可选）`getThemeConfig` 中移除配置项`tabs`
+③ （可选）`getThemeConfig` 中移除配置项 `tabs`
 :::
 :::tip 一点说明
 基于 [vitepress-plugin-tabs@0.2.0](https://www.npmjs.com/package/vitepress-plugin-tabs) 内置实现
@@ -201,7 +216,6 @@ b content 2
 :::
 ```
 
-
 :::=tabs=ab
 ::a
 a content
@@ -228,9 +242,10 @@ const blogTheme = getThemeConfig({
 ```
 
 ## Mermaid - 图表
+
 * Type: `boolean`|`object`
 
->通过解析类 Markdown 的文本语法来实现图表的创建和动态修改。
+> 通过解析类 Markdown 的文本语法来实现图表的创建和动态修改。
 
 :::tip 一点说明
 基于 [vitepress-plugin-mermaid](https://github.com/emersonbottero/vitepress-plugin-mermaid) 实现
@@ -245,7 +260,6 @@ flowchart TD
 ```
 </pre>
 
-
 效果如下
 
 ```mermaid
@@ -256,23 +270,27 @@ flowchart TD
 **默认关闭**，可以通过设置 `mermaid: true` 开启，或进行进一步配置。
 
 :::code-group
-```ts [① 开启]
+
+```ts
 const blogTheme = getThemeConfig({
   mermaid: true
 })
 ```
-```ts [② 进一步配置]
+
+```ts
 const blogTheme = getThemeConfig({
   mermaid: {
     // refer https://mermaid.js.org/config/setup/modules/mermaidAPI.html#mermaidapi-configuration-defaults for options
   }
 })
 ```
+
 :::
 
 下面看一下官方其它案例
 
 **时序图**
+
 ```mermaid
 sequenceDiagram
 Alice->>John: Hello John, how are you?
@@ -286,6 +304,7 @@ Bob-->>John: Jolly good!
 ```
 
 **甘特图**
+
 ```mermaid
 gantt
     section Section
@@ -297,8 +316,8 @@ gantt
     Parallel 4   :         des6, after des4, 1d
 ```
 
-
 ## UserWorksPage
+
 * Type: `UserWorks`
 
 用于作品列表展示
@@ -307,8 +326,8 @@ gantt
 
 ![](https://img.cdn.sugarat.top/mdImg/MTY4NzA4ODczMzkwNg==687088733906)
 
-新建一个`works.md`文件，放入以下内容
-  
+新建一个 `works.md`文件，放入以下内容
+
 ```md
 ---
 layout: page
@@ -324,7 +343,7 @@ sticky: 1
 
 ::: code-group
 
-```ts [default]
+```ts
 const blogTheme = getThemeConfig({
   works: {
     title: '个人项目/线上作品',
@@ -362,7 +381,7 @@ const blogTheme = getThemeConfig({
 })
 ```
 
-```ts [type]
+```ts
 interface UserWorks {
   title: string
   description?: string

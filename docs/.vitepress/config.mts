@@ -47,6 +47,15 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       {
+        text: '文章',
+        items: [
+          { text: '技术分享', link: '/post/jishufengxiang' },
+          { text: '资源分享', link: '/post/ziyuanfengxiang' }
+          // { text: 'Item B', link: '/item-2' },
+          // { text: 'Item C', link: '/item-3' }
+        ]
+      },
+      {
         text: '社交',
         items: [
           { text: '友链', link: '/social/friends' },
@@ -76,7 +85,7 @@ export default defineConfig({
           // { text: 'Item C', link: '/item-3' }
         ]
       },
-      { text: '关于', link: '/about/about' },
+      { text: '关于', link: '/about/' },
       // { text: '关于作者', link: 'https://sugarat.top/aboutme.html' }
     ],
     socialLinks: [

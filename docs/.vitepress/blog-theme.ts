@@ -195,7 +195,7 @@ const blogTheme = getThemeConfig({
       //   link: 'https://theme.sugarat.top/group.html',
       // }
     ],
-    duration: 1
+    duration: 10
   },
 
   oml2d: {

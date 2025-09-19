@@ -1,4 +1,5 @@
 ---
+hidden: true
 description: 介绍一下自定义主题的部分样式
 title: 🔧 主题样式定制
 readingTime: false
@@ -6,8 +7,8 @@ tag:
  - 配置
 recommend: 3
 ---
-
 # 样式配置
+
 样式自定义，参考[官方文档思路](https://vitepress.dev/guide/extending-default-theme#customizing-css)
 
 在 `.vitepress/theme/index.ts` 中引入自定义的样式文件，覆盖默认主题样式即可
@@ -27,6 +28,7 @@ export default BlogTheme
 ```
 
 里面有如下内容
+
 ```scss
 .VPHome {
   // 自定义首页背景图
@@ -43,11 +45,13 @@ export default BlogTheme
   );
 }
 ```
-解除文件`index.ts` 中`import './style.scss'` 注释后，就能看到模板首页背景图发生了变化
+
+解除文件 `index.ts` 中 `import './style.scss'` 注释后，就能看到模板首页背景图发生了变化
 
 ![](https://img.cdn.sugarat.top/mdImg/MTY3Njk5MTAzODkzOQ==676991038939)
 
 ## 首页背景
+
 ```scss
 .VPHome {// [!code focus]
   &::before {// [!code focus]
@@ -67,13 +71,16 @@ export default BlogTheme
 ```
 
 ## 置顶样式
+
 可以自行修改置顶icon的样式
+
 ```scss
 .blog-item .pin.pin::before {
   // 修改颜色
   background-image: linear-gradient(red, red);
 }
 ```
+
 ![](https://img.cdn.sugarat.top/mdImg/MTY3NzA3OTExMjgxMA==677079112810)
 
 ```scss
@@ -82,10 +89,11 @@ export default BlogTheme
   display: none;
 }
 ```
+
 ![](https://img.cdn.sugarat.top/mdImg/MTY3NzA3OTIwODAzNg==677079208036)
 
-
 ## 主题色
+
 vitepress 最新的默认主题色偏紫色，看着感觉有点不习惯
 
 ![](https://img.cdn.sugarat.top/mdImg/MTY5MTkyODQ0ODUzOQ==691928448539)
@@ -94,7 +102,8 @@ vitepress 最新的默认主题色偏紫色，看着感觉有点不习惯
 
 如果内置的不满足要求，也可以进行自定义，自定义的方式是通过覆盖变量的方式
 
-例如可以创建`user-theme.css`文件，内容如下
+例如可以创建 `user-theme.css`文件，内容如下
+
 ```css
 /* 所有变量：https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css */
 /* 自定义主题色示例，如下 */
@@ -123,7 +132,8 @@ html[theme],html[theme].dark {
   --vp-c-brand-soft: var(--vp-c-user-soft);
 }
 ```
-将其引入到`.vitepress/theme/index.ts`中即可
+
+将其引入到 `.vitepress/theme/index.ts`中即可
 
 ```ts
 import BlogTheme from '@sugarat/theme'
@@ -135,4 +145,5 @@ export default BlogTheme
 ```
 
 ## More
+
 ... wait a moment
